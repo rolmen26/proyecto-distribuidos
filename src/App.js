@@ -1,6 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
+const operacion = require('./model/conectAPI');
+
+operacion.getJuego("metal-gear-solid-v-the-phantom-pain");
+
 function App() {
   return (
     <div className="App">
