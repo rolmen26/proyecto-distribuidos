@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card } from "./Card";
 import { Juego } from "../controller/Juego";
 import "../scss/Card.scss";
-import { getJuegosEspecificos } from "../model/ConectaAPI";
+import { getJuegosEspecificos, getPopularGames } from "../model/ConectaAPI";
 
 class MainMenu extends Component {
   state = {
@@ -10,7 +10,7 @@ class MainMenu extends Component {
   };
 
   ObtenerJuegos = async () => {
-    const juegos = await getJuegosEspecificos();
+    const juegos = await getPopularGames();
     const juegosJson = juegos.map((juego) => {
       return new Juego(
         juego.id,
@@ -35,11 +35,7 @@ class MainMenu extends Component {
   renderJuegos() {
     return this.state.juegos.map((juego) => {
       return (
-        <Card
-          key={juego.id}
-          img={juego.background_image}
-          title={juego.name}
-        />
+        <Card key={juego.id} img={juego.background_image} title={juego.name} />
       );
     });
   }

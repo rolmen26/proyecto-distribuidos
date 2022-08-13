@@ -15,7 +15,7 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 20rem));
     gap: 2rem;
     justify-content: center;
 }
@@ -31,7 +31,7 @@ body {
     transition: transform 200ms ease-in;
 
     &__image {
-        height: 10rem;
+        height: 12rem;
         width: 100%;
         object-fit: cover;
     }
@@ -40,29 +40,8 @@ body {
         padding: 1rem;
     }
 
-    &__description {
-        padding: 0 1rem;
-    }
-
-    &__button {
-        padding: 1rem;
-        font-family: inherit;
-        font-weight: bold;
-        font-size: 1rem;
-        margin: 1rem;
-        border: 2px solid #b80000;
-        background: transparent;
-        color: #ff00ff;
-        border-radius: 0.2rem;
-        transition: background 200ms ease-in, color 200ms ease-in;
-    }
-
     &:hover {
-        transform: scale(1.02);
+        transform: scale(1.03);
     }
 
-    &:hover &__button {
-        background: #b80000;
-        color: #ff00ff;
-    }
 }

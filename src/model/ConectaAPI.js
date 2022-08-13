@@ -6,35 +6,25 @@ const url_principal = "https://api.rawg.io/api";
 
 //Consultas a la API
 
-const getJuegosEspecificos = async () => {
-  //Obtenemos el juego
-  const juegos = [
-    "resident-evil",
-    "resident-evil-2",
-    "resident-evil-3",
-    "resident-evil-4",
-    "resident-evil-5-biohazard-5",
-  ];
-  const response = [];
-  for (let i = 0; i < juegos.length; i++) {
-    const data = await axios({
-      method: "GET",
-      url: "/games/" + juegos[i],
-      baseURL: url_principal,
-      params: {
-        key: api_key,
-      },
-      responseType: "json",
-      validateStatus: function (status) {
-        return status >= 200 && status < 300;
-      },
-    });
-    response.push(data.data);
-  }
-  return response;
+const getPopularGames = async () => {
+  const data = await axios({
+    method: "GET",
+    url: "/games",
+    baseURL: url_principal,
+    params: {
+      key: api_key,
+      ordering: "-added",
+      page_size: 50,
+    },
+    responseType: "json",
+    validateStatus: function (status) {
+      return status >= 200 && status < 300;
+    },
+  });
+  return data.data.results;
 };
 
-async function getPopularGames() {
+async function get() {
   await axios({
     method: "GET",
     url: "/games/",
@@ -54,4 +44,4 @@ async function getPopularGames() {
       console.log(res);
     });
 }
-export { getPopularGames, getJuegosEspecificos };
+export { getPopularGames, get };
