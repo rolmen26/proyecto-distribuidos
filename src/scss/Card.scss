@@ -8,9 +8,31 @@
     padding: 0;
 }
 
+.link__game {
+    text-decoration: none;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: #fff;
+    }
+
+    &:focus {
+        outline: none;
+    }
+    
+}
+
 body {
     font-family: 'Oxygen', sans-serif;
     margin: 2rem;
+    background-color: #000;
+    color: #fff;
 }
 
 .main_menu {
@@ -27,7 +49,6 @@ body {
 
 .card {
     overflow: hidden;
-    font-style: italic;
     box-shadow: 0 2px 30px #666666;
     border-radius: 0.5rem;
     display: flex;

@@ -3,7 +3,7 @@ import { Component, React } from "react";
 class CardView extends Component {
   render() {
     return (
-      <div className="card" onClick={this.props.onClick}>
+      <div className="card">
         <div className="card__body">
           <img
             id={this.props.id}

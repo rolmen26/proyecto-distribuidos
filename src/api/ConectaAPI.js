@@ -14,7 +14,7 @@ const getPopularGames = async () => {
     params: {
       key: api_key,
       ordering: "-added",
-      page_size: 50,
+      page_size: 20,
     },
     responseType: "json",
     validateStatus: function (status) {
