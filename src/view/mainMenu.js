@@ -1,20 +1,57 @@
-import { React } from "react";
+import React, { Component } from "react";
 import { Card } from "./Card";
+import { Juego } from "../controller/Juego";
 import "../scss/Card.scss";
+import { getJuegosEspecificos } from "../model/ConectaAPI";
 
-function MainMenu() {
-  return (
-    <div className="main-menu">
-      <h1>Main Menu of the Quiz</h1>
-      <div className="wrapper">
+class MainMenu extends Component {
+  state = {
+    juegos: [],
+  };
+
+  ObtenerJuegos = async () => {
+    const juegos = await getJuegosEspecificos();
+    const juegosJson = juegos.map((juego) => {
+      return new Juego(
+        juego.id,
+        juego.name,
+        juego.description_raw,
+        juego.background_image,
+        juego.alternative_names,
+        juego.released,
+        juego.genres,
+        juego.platforms,
+        juego.developers,
+        juego.publishers
+      );
+    });
+    this.setState({ juegos: juegosJson });
+  };
+
+  componentDidMount() {
+    this.ObtenerJuegos();
+  }
+
+  renderJuegos() {
+    return this.state.juegos.map((juego) => {
+      return (
         <Card
-          img="https://image.api.playstation.com/vulcan/ap/rnd/202010/0501/ph4tgwDaQqHkj84fKrGjye8D.png"
-          title="Metal Gear Solid V: The Phantom Pain"
-          description="Metal Gear Solid V: The Phantom Pain is a 2017 action-adventure video game developed by Kojima Productions and published by Square Enix for the PlayStation 4."
+          key={juego.id}
+          img={juego.background_image}
+          title={juego.name}
         />
+      );
+    });
+  }
+
+  render() {
+    return (
+      <div className="main-menu">
+        <h1>Main Menu of the Quiz</h1>
+        <div className="wrapper">{this.renderJuegos()}</div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default MainMenu;
