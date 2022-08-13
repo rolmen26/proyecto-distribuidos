@@ -24,10 +24,10 @@ const getPopularGames = async () => {
   return data.data.results;
 };
 
-async function get() {
-  await axios({
+const getJuegoEspecificoById = async (id) => {
+  const data = await axios({
     method: "GET",
-    url: "/games/",
+    url: `/games/${id}`,
     baseURL: url_principal,
     params: {
       key: api_key,
@@ -36,12 +36,8 @@ async function get() {
     validateStatus: function (status) {
       return status >= 200 && status < 300;
     },
-  })
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (res) {
-      console.log(res);
-    });
-}
-export { getPopularGames, get };
+  });
+  return data.data;
+};
+
+export { getPopularGames, getJuegoEspecificoById };

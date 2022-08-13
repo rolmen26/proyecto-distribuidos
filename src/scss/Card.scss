@@ -13,6 +13,11 @@ body {
     margin: 2rem;
 }
 
+.main_menu {
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 20rem));
@@ -22,6 +27,7 @@ body {
 
 .card {
     overflow: hidden;
+    font-style: italic;
     box-shadow: 0 2px 30px #666666;
     border-radius: 0.5rem;
     display: flex;
