@@ -40,4 +40,21 @@ const getJuegoEspecificoById = async (id) => {
   return data.data;
 };
 
-export { getPopularGames, getJuegoEspecificoById };
+const getJuegosByGenre = async (genre) => {
+  const data = await axios({
+    method: "GET",
+    url: `/games`,
+    baseURL: url_principal,
+    params: {
+      key: api_key,
+      genres: genre,
+    },
+    responseType: "json",
+    validateStatus: function (status) {
+      return status >= 200 && status < 300;
+    },
+  });
+  return data.data.results;
+};
+
+export { getPopularGames, getJuegoEspecificoById, getJuegosByGenre };

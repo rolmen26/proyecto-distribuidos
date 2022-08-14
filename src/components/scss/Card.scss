@@ -25,19 +25,7 @@
     &:focus {
         outline: none;
     }
-    
-}
 
-body {
-    font-family: 'Oxygen', sans-serif;
-    margin: 2rem;
-    background-color: #000;
-    color: #fff;
-}
-
-.main_menu {
-    align-items: center;
-    margin-bottom: 2rem;
 }
 
 .wrapper {
@@ -56,6 +44,7 @@ body {
     justify-content: space-between;
     cursor: pointer;
     transition: transform 200ms ease-in;
+    color: #000;
 
     &__image {
         height: 12rem;
