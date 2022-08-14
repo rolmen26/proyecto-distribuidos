@@ -1,12 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Oxygen:wdth@300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
-*,
-*::before,
-*::after {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Oxygen', sans-serif;
 }
+
 
 .link__game {
     text-decoration: none;
@@ -32,6 +32,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 20rem));
     gap: 2rem;
+    grid-column: auto;
     justify-content: center;
 }
 
@@ -59,5 +60,4 @@
     &:hover {
         transform: scale(1.03);
     }
-
 }

@@ -57,4 +57,33 @@ const getJuegosByGenre = async (genre) => {
   return data.data.results;
 };
 
-export { getPopularGames, getJuegoEspecificoById, getJuegosByGenre };
+const getGameSeriesByName = async (name) => {
+  const data = await axios({
+    method: "GET",
+    url: `/games`,
+    baseURL: url_principal,
+    params: {
+      key: api_key,
+      search: name,
+      search_precise: true,
+      search_exact: true,
+      exclude_additions: true,
+      exclude_collection: 123,
+      exclude_game_series: false,
+      ordering: "released",
+      page_size: 25,
+    },
+    responseType: "json",
+    validateStatus: function (status) {
+      return status >= 200 && status < 300;
+    },
+  });
+  return data.data.results;
+};
+
+export {
+  getPopularGames,
+  getJuegoEspecificoById,
+  getJuegosByGenre,
+  getGameSeriesByName,
+};

@@ -1,7 +1,5 @@
-import "./components/view/MainMenu";
-import MainMenu from "./components/view/MainMenu";
-import './components/scss/App.scss';
-
+import MainMenu from "./pages/MainMenu";
+import './scss/App.scss';
 function App() {
   return (
     <>

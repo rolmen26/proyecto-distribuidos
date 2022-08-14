@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getJuegosByGenre } from "../api/ConectaAPI";
-import { Link } from "react-router-dom";
-import CardView from "../view/CardView";
 import { Juego } from "./Juego";
+import CardView from "../pages/CardView";
+import { getPopularGames } from "../api/ConectaAPI";
+import { Link } from "react-router-dom";
 
-const GamesGenres = () => {
-  const { genre } = useParams();
+const CardController = () => {
   const [juegos, setJuegos] = useState([]);
 
   useEffect(() => {
     async function getJuegos() {
-      const juegos = await getJuegosByGenre(genre);
+      const juegos = await getPopularGames();
       setJuegos(juegos);
     }
     getJuegos();
-  }, [genre]);
+  }, []);
 
   return (
     <>
@@ -40,4 +38,4 @@ const GamesGenres = () => {
   );
 };
 
-export default GamesGenres;
+export default CardController;
