@@ -14,6 +14,7 @@ const CardDetailController = () => {
             setJuego(juego);
         }
         getJuego();
+        document.title = `${juego.name} - Conecta`; 
     }, [id]);
 
     return (
