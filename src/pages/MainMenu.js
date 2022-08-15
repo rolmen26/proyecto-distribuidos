@@ -5,7 +5,6 @@ import CardDetailController from "../components/CardDetailController";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import GamesGenres from "../components/GamesGenres";
 import SearchGame from "../components/SearchGame";
-import JuegosPopularesView from "./JuegosPopularesView";
 
 class MainMenu extends Component {
   render() {
@@ -14,7 +13,7 @@ class MainMenu extends Component {
         <Router>
           <Sidebar />
           <Routes>
-            <Route path="/" exact element={<JuegosPopularesView />} />
+            <Route path="/" exact element={<CardController />} />
             <Route path="/juego/:id" element={<CardDetailController />} />
             <Route path="/genero/:genre" element={<GamesGenres />} />
             <Route path="/search/:saga" element={<SearchGame />} />
