@@ -1,21 +1,8 @@
-import { Component, React } from "react";
+import React from "react";
+import usePopularGames from '../hooks/usePopularGames'
 
-class CardView extends Component {
-  render() {
-    return (
-      <div className="card">
-        <div className="card__body">
-          <img
-            id={this.props.id}
-            className="card__image"
-            src={this.props.img}
-            alt={this.props.title}
-          />
-        </div>
-        <div className="card__title">{this.props.title}</div>
-      </div>
-    );
-  }
+const CardView = () => {
+  const { isLoading, juegos } = usePopularGames();
 }
 
 export default CardView;

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import CardController from "../components/CardController";
+//import CardController from "../components/CardController";
 import Sidebar from "./Sidebar";
 import CardDetailController from "../components/CardDetailController";
+import CardView from './CardView'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import GamesGenres from "../components/GamesGenres";
 import SearchGame from "../components/SearchGame";
@@ -13,10 +14,7 @@ class MainMenu extends Component {
         <Router>
           <Sidebar />
           <Routes>
-            <Route path="/" exact element={<CardController />} />
-            <Route path="/juego/:id" element={<CardDetailController />} />
-            <Route path="/genero/:genre" element={<GamesGenres />} />
-            <Route path="/search/:saga" element={<SearchGame />} />
+            <Route path="/" element={<CardView />} />
           </Routes>
         </Router>
       </>
