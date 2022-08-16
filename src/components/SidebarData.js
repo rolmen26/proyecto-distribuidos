@@ -9,7 +9,7 @@ export const SidebarData = [
     title: "Juegos Populares",
     path: "/",
     icon: <AiIcon.AiFillHome />,
-    subNav: [],
+    subNav: []
   },
   {
     title: "Generos",
@@ -21,24 +21,24 @@ export const SidebarData = [
       {
         title: "Accion",
         path: "/genero/action",
-        icon: <IoIcon.IoLogoGameControllerA />,
+        icon: <IoIcon.IoLogoGameControllerA />
       },
       {
         title: "Aventura",
         path: "/genero/adventure",
-        icon: <IoIcon.IoLogoGameControllerA />,
+        icon: <IoIcon.IoLogoGameControllerA />
       },
       {
         title: "Rol",
         path: "/genero/role-playing",
-        icon: <IoIcon.IoLogoGameControllerA />,
+        icon: <IoIcon.IoLogoGameControllerA />
       },
       {
         title: "Simulador",
         path: "/genero/simulator",
-        icon: <IoIcon.IoLogoGameControllerA />,
-      },
-    ],
+        icon: <IoIcon.IoLogoGameControllerA />
+      }
+    ]
   },
   {
     title: "Sagas Populares",
@@ -49,45 +49,45 @@ export const SidebarData = [
     subNav: [
       {
         title: "Grand Theft Auto",
-        path: "/search/grand-theft-auto",
-        icon: <IoIcon.IoLogoGameControllerA />,
+        path: "/saga/grand-theft-auto",
+        icon: <IoIcon.IoLogoGameControllerA />
       },
       {
         title: "Resident Evil",
-        path: "/search/resident-evil",
-        icon: <IoIcon.IoLogoGameControllerA />,
+        path: "/saga/resident-evil",
+        icon: <IoIcon.IoLogoGameControllerA />
       },
       {
         title: "Silent Hill",
-        path: "/search/silent-hill",
-        icon: <IoIcon.IoLogoGameControllerA />,
+        path: "/saga/silent-hill",
+        icon: <IoIcon.IoLogoGameControllerA />
       },
       {
         title: "Metal Gear Solid",
-        path: "/search/metal-gear-solid",
-        icon: <IoIcon.IoLogoGameControllerA />,
+        path: "/saga/metal-gear-solid",
+        icon: <IoIcon.IoLogoGameControllerA />
       },
       {
         title: "Devil May Cry",
-        path: "/search/devil-may-cry",
-        icon: <IoIcon.IoLogoGameControllerA />,
+        path: "/saga/devil-may-cry",
+        icon: <IoIcon.IoLogoGameControllerA />
       },
       {
         title: "Gears of War",
-        path: "/search/gears-of-war",
-        icon: <IoIcon.IoLogoGameControllerA />,
+        path: "/saga/gears-of-war",
+        icon: <IoIcon.IoLogoGameControllerA />
       },
       {
         title: "God of War",
-        path: "/search/god-of-war",
-        icon: <IoIcon.IoLogoGameControllerA />,
-      },
-    ],
+        path: "/saga/god-of-war",
+        icon: <IoIcon.IoLogoGameControllerA />
+      }
+    ]
   },
   {
     title: "Busca un juego",
     path: "/search/:game",
     icon: <IoIcon.IoLogoGameControllerA />,
-    subNav: [],
-  },
+    subNav: []
+  }
 ];
