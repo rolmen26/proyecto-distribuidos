@@ -1,5 +1,5 @@
 import MainMenu from "./pages/MainMenu";
-import './scss/App.scss';
+import "./scss/App.scss";
 function App() {
   return (
     <>

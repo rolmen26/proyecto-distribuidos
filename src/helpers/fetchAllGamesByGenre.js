@@ -5,7 +5,7 @@ const transformJuegos = (juegosList) => {
     return {
       id: juego.id,
       name: juego.name,
-      background_image: juego.background_image,
+      background_image: juego.background_image
     };
   });
   return juegosArray;
@@ -15,11 +15,15 @@ const fetchAllGamesByGenre = async (genre) => {
   const resp = await rawgAPI.get("/games", {
     params: {
       key: apiKey,
-      genres: genre,
+      genres: genre
     },
-    responseType: "json",
+    responseType: "json"
   });
   const juegos = resp.data.results;
+  // while (resp.data.next != null) {
+  //   const newResponse = await rawgAPI.get(resp.data.next);
+  //   console.log(newResponse.data);
+  // }
   return transformJuegos(juegos);
 };
 

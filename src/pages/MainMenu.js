@@ -1,27 +1,22 @@
 import React, { Component } from "react";
 import Sidebar from "./Sidebar";
-import GameDetailView from "./GameDetailView";
-import PopularGamesView from "./PopularGamesView";
-import GamesByGenderView from "./GamesByGanderView";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import GamesBySeriesView from "./GamesBySeriesView";
+import { BrowserRouter as Router } from "react-router-dom";
+import AnimatedTransitions from "../components/AnimatedTransitions";
+import { motion } from "framer-motion/dist/framer-motion";
 
-class MainMenu extends Component {
-  render() {
-    return (
-      <>
-        <Router>
-          <Sidebar />
-          <Routes>
-            <Route path="/" element={<PopularGamesView />} />
-            <Route path="/juego/:id" element={<GameDetailView />} />
-            <Route path="/genero/:genre" element={<GamesByGenderView />} />
-            <Route path="/saga/:serie" element={<GamesBySeriesView />} />
-          </Routes>
-        </Router>
-      </>
-    );
-  }
-}
+const MainMenu = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Router>
+        <Sidebar />
+        <AnimatedTransitions />
+      </Router>
+    </motion.div>
+  );
+};
 
 export default MainMenu;

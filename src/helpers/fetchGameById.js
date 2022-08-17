@@ -6,7 +6,7 @@ const transformJuegos = (juego) => {
     name: juego.name,
     background_image: juego.background_image,
     description_raw: juego.description_raw,
-    released: juego.released,
+    released: juego.released
   };
   return juegoById;
 };
@@ -14,9 +14,9 @@ const transformJuegos = (juego) => {
 const fetchGameById = async (id) => {
   const resp = await rawgAPI.get("/games/" + id, {
     params: {
-      key: apiKey,
+      key: apiKey
     },
-    responseType: "json",
+    responseType: "json"
   });
   const juegos = resp.data;
   return transformJuegos(juegos);
