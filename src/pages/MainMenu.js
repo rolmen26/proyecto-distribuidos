@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-//import CardController from "../components/CardController";
 import Sidebar from "./Sidebar";
-import CardDetailController from "../components/CardDetailController";
-import CardView from './CardView'
+import GameDetailView from "./GameDetailView";
+import PopularGamesView from "./PopularGamesView";
+import GamesByGenderView from "./GamesByGanderView";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import GamesGenres from "../components/GamesGenres";
-import SearchGame from "../components/SearchGame";
+import GamesBySeriesView from "./GamesBySeriesView";
 
 class MainMenu extends Component {
   render() {
@@ -14,7 +13,10 @@ class MainMenu extends Component {
         <Router>
           <Sidebar />
           <Routes>
-            <Route path="/" element={<CardView />} />
+            <Route path="/" element={<PopularGamesView />} />
+            <Route path="/juego/:id" element={<GameDetailView />} />
+            <Route path="/genero/:genre" element={<GamesByGenderView />} />
+            <Route path="/saga/:serie" element={<GamesBySeriesView />} />
           </Routes>
         </Router>
       </>
