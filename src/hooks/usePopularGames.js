@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import fetchAllPopularGames from "../helpers/fetchAllPopularGames";
-import { Juegos } from "../interfaces/fetchAllGamesResponse";
 
 const usePopularGames = () => {
   const [isLoading, setisLoading] = useState(true);
-  const [juegos, setJuegos] = useState<Juegos[]>([]);
+  const [juegos, setJuegos] = useState([]);
 
   useEffect(() => {
     fetchAllPopularGames().then((juegos) => {
