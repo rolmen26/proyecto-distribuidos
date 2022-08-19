@@ -17,7 +17,6 @@ const fetchAllPopularGames = async () => {
       key: apiKey,
       ordering: "-added",
     },
-    responseType: "json",
   });
   const juegos = resp.data.results;
   return transformJuegos(juegos);

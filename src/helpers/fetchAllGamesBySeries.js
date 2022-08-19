@@ -24,7 +24,6 @@ const fetchAllGamesBySeries = async (name) => {
       ordering: "released",
       page_size: 25,
     },
-    responseType: "json",
   });
   const juegos = resp.data.results;
   return transformJuegos(juegos);

@@ -17,7 +17,6 @@ const fetchAllGamesByGenre = async (genre) => {
       key: apiKey,
       genres: genre
     },
-    responseType: "json"
   });
   const juegos = resp.data.results;
   // while (resp.data.next != null) {

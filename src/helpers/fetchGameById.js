@@ -16,7 +16,6 @@ const fetchGameById = async (id) => {
     params: {
       key: apiKey
     },
-    responseType: "json"
   });
   const juegos = resp.data;
   return transformJuegos(juegos);
