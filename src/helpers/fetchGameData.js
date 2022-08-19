@@ -15,9 +15,9 @@ const transformJuegos = (juego) => {
     stores: juego.stores, //Tiendas donde se encuentra 
     parent_platforms: juego.parent_platforms, //Plataformas padre en las que se encuentra 
     platforms: juego.platforms, //Consolas en las que se encuentra
-    additions_count: juego.additions_count != 0 ? fetchGameAdditions(juego.id) : [], //Cuantos DLC o contenido extra tiene -> Puede ser 0  Operador Ternario
-    achievements_count: juego.achievements_count != 0 ? fetchGameAchievements(juego.id) : [], //Cuantos logros tiene -> Puede ser 0
-    creators_count: juego.creators_count > 0 ? fetchGameCreators(juego.id) : [], //Cuantos creadores tiene -> puede ser nulo
+    additions: juego.additions_count != 0 ? fetchGameAdditions(juego.id) : [], //Cuantos DLC o contenido extra tiene -> Puede ser 0  Operador Ternario
+    achievvements: juego.achievements_count != 0 ? fetchGameAchievements(juego.id) : [], //Cuantos logros tiene -> Puede ser 0
+    creators: juego.creators_count > 0 ? fetchGameCreators(juego.id) : [], //Cuantos creadores tiene -> puede ser nulo
   };
   return juegoById;
 };
