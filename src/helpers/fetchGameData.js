@@ -1,6 +1,6 @@
 import { rawgAPI, apiKey } from "../api/rawgAPI";
 
-const transformJuegos = (juego) => {
+const transformJuegos = async (juego) => {
   const juegoById = {
     id: juego.id,
     name: juego.name,
@@ -11,13 +11,17 @@ const transformJuegos = (juego) => {
     developers: juego.developers, //Desarrolladores
     genres: juego.genres, //A que genero perteneces
     tags: juego.tags, //Tags como multijugador, un solo juegador, etc..
-    publishers: juego.publishers, //Los publishers 
-    stores: juego.stores, //Tiendas donde se encuentra 
-    parent_platforms: juego.parent_platforms, //Plataformas padre en las que se encuentra 
+    publishers: juego.publishers, //Los publishers
+    stores: juego.stores, //Tiendas donde se encuentra
+    parent_platforms: juego.parent_platforms, //Plataformas padre en las que se encuentra
     platforms: juego.platforms, //Consolas en las que se encuentra
-    additions: juego.additions_count != 0 ? fetchGameAdditions(juego.id) : [], //Cuantos DLC o contenido extra tiene -> Puede ser 0  Operador Ternario
-    achievvements: juego.achievements_count != 0 ? fetchGameAchievements(juego.id) : [], //Cuantos logros tiene -> Puede ser 0
-    creators: juego.creators_count > 0 ? fetchGameCreators(juego.id) : [], //Cuantos creadores tiene -> puede ser nulo
+    additions:
+      juego.additions_count !== 0 ? await fetchGameAdditions(juego.id) : null, //Cuantos DLC o contenido extra tiene -> Puede ser 0  Operador Ternario
+    achievements:
+      juego.achievements_count !== 0
+        ? await fetchGameAchievements(juego.id)
+        : null, //Cuantos logros tiene -> Puede ser 0
+    creators: juego.creators_count > 0 ? await fetchGameCreators(juego.id) : null, //Cuantos creadores tiene -> puede ser nulo
   };
   return juegoById;
 };
@@ -25,56 +29,59 @@ const transformJuegos = (juego) => {
 const fetchGameData = async (id) => {
   const resp = await rawgAPI.get("/games/" + id, {
     params: {
-      key: apiKey
-    }
+      key: apiKey,
+    },
   });
   const juegos = resp.data;
   return transformJuegos(juegos);
 };
 
-const fetchGameAdditions = async = (id) => {
-  const resp = await rawgAPI.get('/games/' + id + '/additions', {
+const fetchGameAdditions = async (id) => {
+  const resp = await rawgAPI.get("/games/" + id + "/additions", {
     params: {
-      key: apiKey
-    }
+      key: apiKey,
+      page_size: 20,
+    },
   });
   const adiciones = resp.data.results;
   const adicionesArr = adiciones.map((adicion) => {
     return {
       adicion_nombre: adicion.name,
-    }
-  })
+    };
+  });
   return adicionesArr;
-}
+};
 
-const fetchGameAchievements = async = (id) => {
-  const resp = await rawgAPI.get('/games/' + id + '/achievements', {
+const fetchGameAchievements = async (id) => {
+  const resp = await rawgAPI.get("/games/" + id + "/achievements", {
     params: {
-      key: apiKey
-    }
+      key: apiKey,
+      page_size: 20,
+    },
   });
   const logros = resp.data.results;
   const logrosArr = logros.map((logro) => {
     return {
       nombre_logro: logro.name,
-    }
-  })
+    };
+  });
   return logrosArr;
-}
+};
 
-const fetchGameCreators = async = (id) => {
-  const resp = await rawgAPI.get('/games/' + id + '/development-team', {
+const fetchGameCreators = async (id) => {
+  const resp = await rawgAPI.get("/games/" + id + "/development-team", {
     params: {
-      key: apiKey
-    }
+      key: apiKey,
+      page_size: 20,
+    },
   });
   const creadores = resp.data.results;
   const creadoresArr = creadores.map((creador) => {
     return {
       creador_nombre: creador.name,
-    }
-  })
+    };
+  });
   return creadoresArr;
-}
+};
 
 export default fetchGameData;

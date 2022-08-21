@@ -9,7 +9,13 @@ export const SidebarData = [
     title: "Juegos Populares",
     path: "/",
     icon: <AiIcon.AiFillHome />,
-    subNav: []
+    subNav: [],
+  },
+  {
+    title: "Trending",
+    path: "/trending",
+    icon: <AiIcon.AiFillHome />,
+    subNav: [],
   },
   {
     title: "Generos",
@@ -21,24 +27,24 @@ export const SidebarData = [
       {
         title: "Accion",
         path: "/genero/action",
-        icon: <IoIcon.IoLogoGameControllerA />
+        icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Aventura",
         path: "/genero/adventure",
-        icon: <IoIcon.IoLogoGameControllerA />
+        icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Rol",
         path: "/genero/role-playing",
-        icon: <IoIcon.IoLogoGameControllerA />
+        icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Simulador",
         path: "/genero/simulator",
-        icon: <IoIcon.IoLogoGameControllerA />
-      }
-    ]
+        icon: <IoIcon.IoLogoGameControllerA />,
+      },
+    ],
   },
   {
     title: "Sagas Populares",
@@ -50,44 +56,44 @@ export const SidebarData = [
       {
         title: "Grand Theft Auto",
         path: "/saga/grand-theft-auto",
-        icon: <IoIcon.IoLogoGameControllerA />
+        icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Resident Evil",
         path: "/saga/resident-evil",
-        icon: <IoIcon.IoLogoGameControllerA />
+        icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Silent Hill",
         path: "/saga/silent-hill",
-        icon: <IoIcon.IoLogoGameControllerA />
+        icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Metal Gear Solid",
-        path: "/saga/metal-gear-solid",
-        icon: <IoIcon.IoLogoGameControllerA />
+        path: "/saga/metal-gear-solid-1",
+        icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Devil May Cry",
         path: "/saga/devil-may-cry",
-        icon: <IoIcon.IoLogoGameControllerA />
+        icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Gears of War",
         path: "/saga/gears-of-war",
-        icon: <IoIcon.IoLogoGameControllerA />
+        icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "God of War",
         path: "/saga/god-of-war",
-        icon: <IoIcon.IoLogoGameControllerA />
-      }
-    ]
+        icon: <IoIcon.IoLogoGameControllerA />,
+      },
+    ],
   },
   {
     title: "Busca un juego",
     path: "/search/:game",
     icon: <IoIcon.IoLogoGameControllerA />,
-    subNav: []
-  }
+    subNav: [],
+  },
 ];

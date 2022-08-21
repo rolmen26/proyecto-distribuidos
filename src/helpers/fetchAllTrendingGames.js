@@ -11,15 +11,15 @@ const transformJuegos = (juegosList) => {
   return juegosArray;
 };
 
-const fetchAllGamesBySeries = async (name) => {
-  const resp = await rawgAPI.get("/games/" + name + "/game-series", {
+const fetchTrendingGames = async () => {
+  const resp = await rawgAPI.get("/games/lists/main", {
     params: {
       key: apiKey,
-      page_size: 50,
+      page_size: 20,
     },
   });
   const juegos = resp.data.results;
   return transformJuegos(juegos);
 };
 
-export default fetchAllGamesBySeries;
+export default fetchTrendingGames;

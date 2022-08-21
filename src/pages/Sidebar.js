@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import * as FaIcon from "react-icons/fa";
@@ -48,22 +48,22 @@ const Sidebar = () => {
 
   return (
     <>
-      <IconContext.Provider value={{ color : '#8B008B'}} >
-      <Nav>
-        <NavIcon to="#">
-          <FaIcon.FaBars onClick={showSideBar} />
-        </NavIcon>
-      </Nav>
-      <SidebarNav sideBar={sideBar}>
-        <SidebarWrap>
+      <IconContext.Provider value={{ color: "#8B008B" }}>
+        <Nav>
           <NavIcon to="#">
-            <AiIcon.AiOutlineClose onClick={showSideBar} />
+            <FaIcon.FaBars onClick={showSideBar} />
           </NavIcon>
-          {SidebarData.map((item, index) => {
-            return <SubMenu item={item} key={index} />;
-          })}
-        </SidebarWrap>
-      </SidebarNav>
+        </Nav>
+        <SidebarNav sideBar={sideBar}>
+          <SidebarWrap>
+            <NavIcon to="#">
+              <AiIcon.AiOutlineClose onClick={showSideBar} />
+            </NavIcon>
+            {SidebarData.map((item, index) => {
+              return <SubMenu item={item} key={index} />;
+            })}
+          </SidebarWrap>
+        </SidebarNav>
       </IconContext.Provider>
     </>
   );
