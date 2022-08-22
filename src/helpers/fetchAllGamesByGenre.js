@@ -19,10 +19,6 @@ const fetchAllGamesByGenre = async (genre) => {
     },
   });
   const juegos = resp.data.results;
-  // while (resp.data.next != null) {
-  //   const newResponse = await rawgAPI.get(resp.data.next);
-  //   console.log(newResponse.data);
-  // }
   return transformJuegos(juegos);
 };
 

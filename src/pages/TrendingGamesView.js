@@ -1,11 +1,11 @@
 import React from "react";
-import usePopularGames from "../hooks/usePopularGames";
 import { Link } from "react-router-dom";
+import useTrendingGames from "../hooks/useTrendingGames";
 import ViewGamesCard from "../components/ViewGamesCard";
 import { Loading } from "../components/Loading";
 
-const PopularGamesView = () => {
-  const { isLoading, juegos } = usePopularGames();
+const TrendingGamesView = () => {
+  const { isLoading, juegos } = useTrendingGames();
 
   return (
     <>
@@ -28,4 +28,4 @@ const PopularGamesView = () => {
   );
 };
 
-export default PopularGamesView;
+export default TrendingGamesView;

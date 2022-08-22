@@ -35,8 +35,8 @@ export const SidebarData = [
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
-        title: "Rol",
-        path: "/genero/role-playing",
+        title: "Shooter",
+        path: "/genero/shooter",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
