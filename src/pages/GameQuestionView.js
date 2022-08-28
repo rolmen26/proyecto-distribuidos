@@ -1,70 +1,104 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useGameData from "../hooks/useGameData";
+import preguntas from "../components/Preguntas";
+import { useEffect, useState } from "react";
 
 const GameQuestionView = () => {
   const { id } = useParams();
   const { juego, isLoading } = useGameData(id);
+  const [preguntaActual, setPreguntaActual] = useState(0);
+  const [puntuacion, setPuntuacion] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
+  const [tiempoRestante, setTiempoRestante] = useState(10);
+  const [areDisabled, setAreDisabled] = useState(false);
+
+  function handleAnswerSubmit(correcta, e) {
+    if (correcta) setPuntuacion(puntuacion + 1);
+    e.target.classList.add(correcta ? "correct" : "incorrect");
+    setTimeout(() => {
+      if (preguntaActual === preguntas(juego).length - 1) {
+        setIsFinished(true);
+      } else {
+        setPreguntaActual(preguntaActual + 1);
+        setTiempoRestante(10);
+      }
+    }, 1000);
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (tiempoRestante > 0) setTiempoRestante((prev) => prev - 1);
+      if (tiempoRestante === 0) setAreDisabled(true);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [tiempoRestante]);
+
+  if (isFinished)
+    return (
+      <div className="game-over">
+        <h1>Juego terminado</h1>
+        <p>
+          Puntuación: <strong>{puntuacion}</strong>
+        </p>
+        <button
+          onClick={() => (window.location.href = "/preguntas-juego/" + id)}
+        >
+          Jugar de nuevo
+        </button>
+        <button onClick={() => (window.location.href = "/")}>
+          Volver al inicio
+        </button>
+      </div>
+    );
+
   return (
     <>
       {isLoading ? (
         <div>
-          <p>Cargando preguntas..</p>
+          <p>Cargando preguntas...</p>
         </div>
       ) : (
-        <div>
-          <h1>{juego.name}</h1>
-          <img src={juego.background_image} alt={juego.name} width="50%" />
-          <p>{juego.description_raw} </p>
-          <h2>Salio en</h2>
-          <p>{juego.released}</p>
-          <h2>Tiempo de juego</h2>
-          <p>{juego.playtime}</p>
-          <h2>Desarrolladores</h2>
-          {juego.developers.map((desarrollador) => (
-            <p key={desarrollador.name}>{desarrollador.name}</p>
-          ))}
-          <h2>Generos</h2>
-          {juego.genres.map((genero) => (
-            <p key={genero.name}>{genero.name}</p>
-          ))}
-          <h2>Tags</h2>
-          {juego.tags.map((tag) => (
-            <p key={tag.name}>{tag.name}</p>
-          ))}
-          <h2>Publishers</h2>
-          {juego.publishers.map((publisher) => (
-            <p key={publisher.name}>{publisher.name}</p>
-          ))}
-          <h2>Platforms</h2>
-          {juego.platforms &&
-            juego.platforms.map((platform) => (
-              <p key={platform.platform.name}>{platform.platform.name}</p>
+        <div className="preguntas">
+          <div className="lado-izquierdo">
+            <div className="numero-pregunta">
+              <span>Pregunta {preguntaActual + 1} de</span>
+              {preguntas(juego).length}
+            </div>
+            <div className="titulo-pregunta">
+              <span>{preguntas(juego)[preguntaActual].pregunta}</span>
+            </div>
+            <div>
+              {!areDisabled ? (
+                <span className="tiempo-restante">
+                  Tiempo restante: {tiempoRestante}
+                </span>
+              ) : (
+                <button
+                  onClick={() => {
+                    setTiempoRestante(10);
+                    setAreDisabled(false);
+                    setPreguntaActual(preguntaActual + 1);
+                  }}
+                >
+                  Continuar
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="lado-derecho">
+            {preguntas(juego)[preguntaActual].opciones.map((resp) => (
+              <button
+                disabled={areDisabled}
+                key={resp.opcion}
+                onClick={(e) => {
+                  handleAnswerSubmit(resp.correcta, e);
+                }}
+              >
+                {resp.opcion}
+              </button>
             ))}
-          <h2>Additions</h2>
-          {juego.additions ? (
-            juego.additions.map((addition) => (
-              <p key={addition.adicion_nombre}>{addition.adicion_nombre}</p>
-            ))
-          ) : (
-            <p>No hay informacion disponible</p>
-          )}
-          <h2>Achievements </h2>
-          {juego.achievements ? (
-            juego.achievements.map((achievement) => (
-              <p key={achievement.nombre_logro}>{achievement.nombre_logro}</p>
-            ))
-          ) : (
-            <p>No hay informacion disponible</p>
-          )}
-          <h2>Creators</h2>
-          {juego.creators ? (
-            juego.creators.map((creator) => (
-              <p key={creator.creador_nombre}>{creator.creador_nombre}</p>
-            ))
-          ) : (
-            <p>No hay informacion disponible</p>
-          )}
+          </div>
         </div>
       )}
     </>
