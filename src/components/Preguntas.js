@@ -97,7 +97,7 @@ const preguntas = (juego) => [
     pregunta: "¿En que plataforma esta disponible el juego?",
     opciones: [
       {
-        opcion: juego.platforms[0]['platform']['name'],
+        opcion: juego.platforms[0]["platform"]["name"],
         correcta: true,
       },
 
@@ -111,21 +111,24 @@ const preguntas = (juego) => [
     pregunta: "Selecciona un contenido adicional del juego",
     opciones: [
       {
-        opcion: juego.additions[0]["adicion_nombre"],
+        opcion: juego.additions
+          ? juego.additions[0]["adicion_nombre"]
+          : "No tiene contenido adicional",
         correcta: true,
       },
       {
         opcion: "Juego de cartas",
         correcta: false,
       },
-
     ],
   },
   {
     pregunta: "Selecciona un logro del juego",
     opciones: [
       {
-        opcion: juego.achievements[0]["nombre_logro"],
+        opcion: juego.achievements
+          ? juego.achievements[0]["nombre_logro"]
+          : "No tiene logros",
         correcta: true,
       },
       {
@@ -138,7 +141,9 @@ const preguntas = (juego) => [
     pregunta: "Selecciona creadores del juego",
     opciones: [
       {
-        opcion: juego.creators[0]["creador_nombre"],	
+        opcion: juego.creators
+          ? juego.creators[0]["creador_nombre"]
+          : "Creadores no disponibles",
         correcta: true,
       },
       {
