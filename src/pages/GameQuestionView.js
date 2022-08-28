@@ -62,7 +62,7 @@ const GameQuestionView = () => {
         <div className="preguntas">
           <div className="lado-izquierdo">
             <div className="numero-pregunta">
-              <span>Pregunta {preguntaActual + 1} de</span>
+              <span>Pregunta {preguntaActual + 1} de </span>
               {preguntas(juego).length}
             </div>
             <div className="titulo-pregunta">
@@ -78,7 +78,11 @@ const GameQuestionView = () => {
                   onClick={() => {
                     setTiempoRestante(10);
                     setAreDisabled(false);
-                    setPreguntaActual(preguntaActual + 1);
+                    if (preguntaActual === preguntas(juego).length - 1) {
+                      setIsFinished(true);
+                    } else {
+                      setPreguntaActual(preguntaActual + 1);
+                    }
                   }}
                 >
                   Continuar
