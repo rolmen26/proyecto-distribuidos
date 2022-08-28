@@ -8,7 +8,8 @@ import { Loading } from "../components/Loading";
 const GamesByGenderView = () => {
   const { genre } = useParams();
 
-  const { juegos, isLoading } = useGamesByGenre(genre);
+  const { juegos, isLoading, next, previous, handlePageClick } =
+    useGamesByGenre(genre);
 
   return (
     <>
@@ -25,6 +26,26 @@ const GamesByGenderView = () => {
               />
             </Link>
           ))}
+          {previous && (
+            <button
+              onClick={() => {
+                handlePageClick({ page: previous });
+              }}
+              className="btn__game"
+            >
+              Previous
+            </button>
+          )}
+          {next && (
+            <button
+              onClick={() => {
+                handlePageClick({ page: next });
+              }}
+              className="btn__game"
+            >
+              Next
+            </button>
+          )}
         </div>
       )}
     </>

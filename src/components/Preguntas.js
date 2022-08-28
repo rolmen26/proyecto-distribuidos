@@ -80,7 +80,10 @@ const preguntas = (juego) => [
     pregunta: "¿Cuál es el publisher del juego?",
     opciones: [
       {
-        opcion: juego.publishers[0]["name"],
+        opcion:
+          juego.publishers === []
+            ? juego.publishers[0]["name"]
+            : "No hay publisher",
         correcta: true,
       },
       {

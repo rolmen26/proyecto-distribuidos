@@ -18,8 +18,14 @@ const fetchAllPopularGames = async () => {
       ordering: "-added",
     },
   });
-  const juegos = resp.data.results;
-  return transformJuegos(juegos);
+  const { results, next, previous } = resp.data;
+  return { juegos: transformJuegos(results), next: next, previous: previous };
 };
 
-export default fetchAllPopularGames;
+const fetchNextPreviousPage = async (page) => {
+  const resp = await rawgAPI.get(page);
+  const { results, next, previous } = resp.data;
+  return { juegos: transformJuegos(results), next: next, previous: previous };
+};
+
+export { fetchAllPopularGames, fetchNextPreviousPage };

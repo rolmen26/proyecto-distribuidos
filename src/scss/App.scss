@@ -72,6 +72,34 @@
     transition: opacity 250ms ease-in;
 }
 
+.btn__game {
+    background-color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    color: #000;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+    text-decoration: none;
+    font-family: 'Oxygen', sans-serif;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 0.5rem;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+}
+
 /* PREGUNTAS */
 .preguntas {
     margin: 0;

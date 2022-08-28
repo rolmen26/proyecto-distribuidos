@@ -18,8 +18,18 @@ const fetchTrendingGames = async () => {
       page_size: 20,
     },
   });
-  const juegos = resp.data.results;
-  return transformJuegos(juegos);
+  const { results, next, previous } = resp.data;
+  return {
+    juegos: transformJuegos(results),
+    next: next,
+    previous: previous,
+  };
 };
 
-export default fetchTrendingGames;
+const fetchNextPreviousPage = async (page) => {
+  const resp = await rawgAPI.get(page);
+  const { results, next, previous } = resp.data;
+  return { juegos: transformJuegos(results), next: next, previous: previous };
+};
+
+export { fetchTrendingGames, fetchNextPreviousPage };

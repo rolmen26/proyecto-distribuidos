@@ -5,7 +5,8 @@ import ViewGamesCard from "../components/ViewGamesCard";
 import { Loading } from "../components/Loading";
 
 const PopularGamesView = () => {
-  const { isLoading, juegos } = usePopularGames();
+  const { isLoading, juegos, next, previous, handlePageClick } =
+    usePopularGames();
 
   return (
     <>
@@ -22,6 +23,26 @@ const PopularGamesView = () => {
               />
             </Link>
           ))}
+          {previous && (
+            <button
+              onClick={() => {
+                handlePageClick({ page: previous });
+              }}
+              className="btn__game"
+            >
+              Previous
+            </button>
+          )}
+          {next && (
+            <button
+              onClick={() => {
+                handlePageClick({ page: next });
+              }}
+              className="btn__game"
+            >
+              Next
+            </button>
+          )}
         </div>
       )}
     </>

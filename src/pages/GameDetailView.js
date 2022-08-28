@@ -16,8 +16,8 @@ const GameDetailView = () => {
       ) : (
         <div>
           <div>
-            <Link className="link__game" to="/">
-              <button>Go back</button>
+            <Link className="link__game" to={`#`}>
+              <button onClick={() => window.history.back()}>Regresar</button>
             </Link>
           </div>
           <h1>{juego.name}</h1>
