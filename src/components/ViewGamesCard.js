@@ -1,20 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "../scss/GameCard.scss";
 
 const ViewGamesCard = (props) => {
   return (
     <>
-      <div className="card">
-        <div className="card__body">
-          <img
-            key={props.id}
-            id={props.id}
-            className="card__image"
-            src={props.background_image}
-            alt={props.name}
-          />
+      <Link className="link__game" key={props.id} to={`/juego/${props.id}`}>
+        <div className="card">
+          <div className="card__body">
+            <img
+              key={props.id}
+              id={props.id}
+              className="card__image"
+              src={props.background_image}
+              alt={props.name}
+            />
+          </div>
+          <div className="card__title">{props.name}</div>
         </div>
-        <div className="card__title">{props.name}</div>
-      </div>
+      </Link>
     </>
   );
 };

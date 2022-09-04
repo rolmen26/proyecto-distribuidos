@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useGameData from "../hooks/useGameData";
 import preguntas from "../components/Preguntas";
 import { useEffect, useState } from "react";
+import "../scss/Preguntas.scss";
 
 const GameQuestionView = () => {
   const { id } = useParams();

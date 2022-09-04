@@ -1,0 +1,67 @@
+.link__game {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 20rem));
+    gap: 2rem;
+    margin-top: 1.5rem;
+    grid-column: auto;
+    justify-content: center;
+}
+
+.card {
+    overflow: hidden;
+    box-shadow: 0 2px 10px #232323;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 200ms ease-in;
+    background-color: #242424;
+    color: #fff;
+
+    &__image {
+        height: 12rem;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &__title {
+        padding: 1rem;
+    }
+
+    &:hover {
+        transform: scale(1.03);
+    }
+}
+
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 250ms ease-in;
+}
+
+.btn__game {
+    background-color: #fff;
+    font-size: 1.2rem;
+    color: #000;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    border: 1px solid #000;
+    border-radius: 0.5rem;
+
+    &:hover {
+        background-color: #8B008B;
+        color: #fff;
+    }
+}
