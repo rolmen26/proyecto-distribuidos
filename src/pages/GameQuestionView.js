@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useGameData from "../hooks/useGameData";
 import preguntas from "../components/Preguntas";
 import { useEffect, useState } from "react";
+import { Loading } from "../components/Loading";
 import "../scss/Preguntas.scss";
 
 const GameQuestionView = () => {
@@ -56,9 +57,7 @@ const GameQuestionView = () => {
   return (
     <>
       {isLoading ? (
-        <div>
-          <p>Cargando preguntas...</p>
-        </div>
+        <Loading />
       ) : (
         <div className="preguntas">
           <div className="lado-izquierdo">
@@ -76,6 +75,7 @@ const GameQuestionView = () => {
                 </span>
               ) : (
                 <button
+                  className="opcion"
                   onClick={() => {
                     setTiempoRestante(10);
                     setAreDisabled(false);
@@ -94,6 +94,7 @@ const GameQuestionView = () => {
           <div className="lado-derecho">
             {preguntas(juego)[preguntaActual].opciones.map((resp) => (
               <button
+                className="opcion"
                 disabled={areDisabled}
                 key={resp.opcion}
                 onClick={(e) => {

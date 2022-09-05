@@ -15,9 +15,6 @@
     border-radius: 15px;
     padding: 20px 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
-    display: flex;
-    justify-content: space-evenly;
-
 }
 
 .lado-izquierdo {
@@ -57,55 +54,87 @@
 }
 
 /* GRAL */
-// button {
-//     width: 100%;
-//     font-size: 16px;
-//     color: #ffffff;
-//     background-color: #252d4a;
-//     border-radius: 15px;
-//     display: flex;
-//     padding: 5px;
-//     justify-content: flex-start;
-//     align-items: center;
-//     border: 5px solid #234668;
-//     cursor: pointer;
-// }
+.opcion {
+    width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #252d4a;
+    border-radius: 15px;
+    display: flex;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    border: 5px solid #234668;
+    cursor: pointer;
 
-// .tiempo-restante {
-//     font-size: 14px;
-//     color: #fcbf3d;
-//     margin-bottom: 20px;
-// }
+    &:hover {
+        background-color: #234668;
+    }
+}
 
-// .correct,
-// .correct:hover {
-//     background-color: #2f922f;
-// }
+.tiempo-restante {
+    font-size: 14px;
+    color: #fcbf3d;
+    margin-bottom: 20px;
+}
 
-// .incorrect,
-// .incorrect:hover {
-//     background-color: #ff3333;
-// }
+.correct,
+.correct:hover {
+    background-color: #2f922f;
+}
 
-// .btns-container {
-//     display: flex;
-//     justify-content: space-evenly;
-// }
+.incorrect,
+.incorrect:hover {
+    background-color: #ff3333;
+}
 
-// button:hover {
-//     background-color: #234668;
-// }
+.btns-container {
+    display: flex;
+    justify-content: space-evenly;
+}
 
-// button[disabled] {
-//     background-color: #555e7d;
-//     color: #ffffff;
-//     cursor: not-allowed;
-// }
+.opcion[disabled] {
+    background-color: #555e7d;
+    color: #ffffff;
+    cursor: not-allowed;
+}
 
-// button:focus {
-//     outline: none;
-// }
+.opcion:focus {
+    outline: none;
+}
 
-// button svg {
-//     margin-right: 5px;
-// }
+.opcion svg {
+    margin-right: 5px;
+}
+
+.game-over {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 24px;
+    align-items: center;
+    h1 {
+        font-size: 32px;
+        color: #fcbf3d;
+    }
+
+    p {
+        font-size: 18px;
+        color: #ffffff;
+    }
+
+    button {
+        font-size: 18px;
+        color: #ffffff;
+        background-color: #252d4a;
+        border-radius: 15px;
+        display: flex;
+        padding: 5px;
+        justify-content: flex-start;
+        align-items: center;
+        border: 5px solid #234668;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

@@ -41,7 +41,7 @@ export const SidebarData = [
       },
       {
         title: "Simulador",
-        path: "/genero/simulator",
+        path: "/genero/simulation",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
     ],
@@ -55,7 +55,7 @@ export const SidebarData = [
     subNav: [
       {
         title: "Grand Theft Auto",
-        path: "/saga/grand-theft-auto",
+        path: "/saga/grand-theft-auto-1998",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
@@ -89,11 +89,5 @@ export const SidebarData = [
         icon: <IoIcon.IoLogoGameControllerA />,
       },
     ],
-  },
-  {
-    title: "Busca un juego",
-    path: "/search/:game",
-    icon: <IoIcon.IoLogoGameControllerA />,
-    subNav: [],
   },
 ];
