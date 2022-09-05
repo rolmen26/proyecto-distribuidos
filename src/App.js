@@ -6,7 +6,7 @@ import GamesByGenderView from "../src/pages/GamesByGenderView";
 import GamesBySeriesView from "../src/pages/GamesBySeriesView";
 import TrendingGamesView from "../src/pages/TrendingGamesView";
 import GameQuestionView from "../src/pages/GameQuestionView";
-import Sidebar from "./pages/Sidebar";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
