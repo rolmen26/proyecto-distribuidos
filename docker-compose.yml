@@ -1,0 +1,14 @@
+version: '2.7'
+
+services:
+  app:
+    container_name: proyecto_distribuidos
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      # - node_modules
+    ports:
+      - 3000:3000
+    restart: unless-stopped

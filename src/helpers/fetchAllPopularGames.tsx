@@ -1,5 +1,5 @@
 import { rawgAPI, apiKey } from '../api/rawgAPI';
-import { FetchAllPopularGamesResponse, Juegos } from '../interfaces/FetchAllPopularGamesResponse';
+import { FetchAllPopularGamesResponse, Juegos } from '../interfaces/fetchAllPopularGamesResponse';
 export const fetchAllPopularGames = async (): Promise<Juegos[]> => {
 
     const resp = await rawgAPI.get<FetchAllPopularGamesResponse>('/games', {

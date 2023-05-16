@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllPopularGames } from '../helpers/fetchAllPopularGames';
-import { Juegos } from '../interfaces/FetchAllPopularGamesResponse';
+import { Juegos } from '../interfaces/fetchAllPopularGamesResponse';
 
 
 export const usePopularGames = () => {
