@@ -12,6 +12,12 @@ export const SidebarData = [
     subNav: [],
   },
   {
+    title: "Trending",
+    path: "/trending",
+    icon: <AiIcon.AiFillHome />,
+    subNav: [],
+  },
+  {
     title: "Generos",
     path: "#",
     icon: <FaIcon.FaGamepad />,
@@ -29,13 +35,13 @@ export const SidebarData = [
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
-        title: "Rol",
-        path: "/genero/role-playing",
+        title: "Shooter",
+        path: "/genero/shooter",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Simulador",
-        path: "/genero/simulator",
+        path: "/genero/simulation",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
     ],
@@ -49,45 +55,39 @@ export const SidebarData = [
     subNav: [
       {
         title: "Grand Theft Auto",
-        path: "/search/grand-theft-auto",
+        path: "/saga/grand-theft-auto-1998",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Resident Evil",
-        path: "/search/resident-evil",
+        path: "/saga/resident-evil",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Silent Hill",
-        path: "/search/silent-hill",
+        path: "/saga/silent-hill",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Metal Gear Solid",
-        path: "/search/metal-gear-solid",
+        path: "/saga/metal-gear-solid-1",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Devil May Cry",
-        path: "/search/devil-may-cry",
+        path: "/saga/devil-may-cry",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "Gears of War",
-        path: "/search/gears-of-war",
+        path: "/saga/gears-of-war",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
       {
         title: "God of War",
-        path: "/search/god-of-war",
+        path: "/saga/god-of-war",
         icon: <IoIcon.IoLogoGameControllerA />,
       },
     ],
-  },
-  {
-    title: "Busca un juego",
-    path: "/search/:game",
-    icon: <IoIcon.IoLogoGameControllerA />,
-    subNav: [],
   },
 ];
