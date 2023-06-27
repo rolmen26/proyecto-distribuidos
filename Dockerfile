@@ -4,9 +4,11 @@ RUN apk add --no-cache bash git zip unzip
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 

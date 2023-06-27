@@ -1,31 +1,34 @@
-import { rawgAPI, apiKey } from '../api/rawgAPI';
-import { FetchAllPopularGamesResponse, Juegos } from '../interfaces/fetchAllPopularGamesResponse';
-export const fetchAllPopularGames = async (): Promise<Juegos[]> => {
+// import { rawgAPI, apiKey } from '../api/rawgAPI';
+// import { FetchAllPopularGamesResponse, Juegos } from '../interfaces/fetchAllPopularGamesResponse';
 
-    const resp = await rawgAPI.get<FetchAllPopularGamesResponse>('/games', {
-        params: {
-            key: apiKey,
-            ordering: "-added",
-            page_size: 20
-        },
-        responseType: 'json'
-    })
-    const juegos = resp.data.results;
+// export const fetchAllPopularGames = async (): Promise<Juegos[]> => {
 
-    return transformJuegos(juegos);
-}
+//     const resp = await rawgAPI.get<FetchAllPopularGamesResponse>('/games', {
+//         params: {
+//             key: apiKey,
+//             ordering: "-added",
+//             page_size: 20
+//         },
+//         responseType: 'json'
+//     })
+//     const juegos = resp.data.results;
 
-const transformJuegos = (juegos: Juegos[]): Juegos[] => {
+//     return transformJuegos(juegos);
+// }
 
-    const juegosArrary: Juegos[] = juegos.map(juego => {
-        return {
-            id: juego.id,
-            name: juego.name,
-            background_image: juego.background_image
-        }
-    })
+// const transformJuegos = (juegos: Juegos[]): Juegos[] => {
 
-    console.log(juegosArrary);
+//     const juegosArrary: Juegos[] = juegos.map(juego => {
+//         return {
+//             id: juego.id,
+//             name: juego.name,
+//             background_image: juego.background_image
+//         }
+//     })
 
-    return juegosArrary;
-}
+//     console.log(juegosArrary);
+
+//     return juegosArrary;
+// }
+
+export  {}
