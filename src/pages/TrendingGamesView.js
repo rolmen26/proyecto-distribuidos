@@ -1,50 +1,50 @@
-import React from "react";
-import useTrendingGames from "../hooks/useTrendingGames";
-import ViewGamesCard from "../components/ViewGamesCard";
-import { Loading } from "../components/Loading";
+// import React from "react";
+// import useTrendingGames from "../hooks/useTrendingGames";
+// import ViewGamesCard from "../components/ViewGamesCard";
+// import { Loading } from "../components/Loading";
 
-const TrendingGamesView = () => {
-  const { isLoading, juegos, next, previous, handlePageClick } =
-    useTrendingGames();
+// const TrendingGamesView = () => {
+//   const { isLoading, juegos, next, previous, handlePageClick } =
+//     useTrendingGames();
 
-  return (
-    <>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <div className="wrapper">
-          {juegos.map(({ id, name, background_image }) => (
-            <ViewGamesCard
-              key={id}
-              id={id}
-              name={name}
-              background_image={background_image}
-            />
-          ))}
-          {previous && (
-            <button
-              onClick={() => {
-                handlePageClick({ page: previous });
-              }}
-              className="btn__game"
-            >
-              Previous
-            </button>
-          )}
-          {next && (
-            <button
-              onClick={() => {
-                handlePageClick({ page: next });
-              }}
-              className="btn__game"
-            >
-              Next
-            </button>
-          )}
-        </div>
-      )}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {isLoading ? (
+//         <Loading />
+//       ) : (
+//         <div className="wrapper">
+//           {juegos.map(({ id, name, background_image }) => (
+//             <ViewGamesCard
+//               key={id}
+//               id={id}
+//               name={name}
+//               background_image={background_image}
+//             />
+//           ))}
+//           {previous && (
+//             <button
+//               onClick={() => {
+//                 handlePageClick({ page: previous });
+//               }}
+//               className="btn__game"
+//             >
+//               Previous
+//             </button>
+//           )}
+//           {next && (
+//             <button
+//               onClick={() => {
+//                 handlePageClick({ page: next });
+//               }}
+//               className="btn__game"
+//             >
+//               Next
+//             </button>
+//           )}
+//         </div>
+//       )}
+//     </>
+//   );
+// };
 
-export default TrendingGamesView;
+// export default TrendingGamesView;

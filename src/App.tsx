@@ -1,11 +1,9 @@
 import "./scss/App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PopularGamesView from "./views/PopularGamesView"
-import GameDetailView from "../src/pages/GameDetailView";
-import GamesByGenderView from "../src/pages/GamesByGenderView";
-import GamesBySeriesView from "../src/pages/GamesBySeriesView";
-import TrendingGamesView from "../src/pages/TrendingGamesView";
-import GameQuestionView from "../src/pages/GameQuestionView";
+import TrendingGamesView from "./views/TrendingGamesViews";
+import GamesByGenresView from "./views/GamesByGenresView"
+import GamesBySeriesView from "./views/GamesBySeriesView"
 import Sidebar from "./components/Sidebar";
 import React from "react";
 
@@ -13,20 +11,20 @@ const App = () => {
   return (
     <div>
       <React.Fragment>
-      <Router>
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<PopularGamesView />} />
-          {/* <Route path="/juego/:id" element={<GameDetailView />} />
-          <Route path="/genero/:genre" element={<GamesByGenderView />} />
-          <Route path="/saga/:serie" element={<GamesBySeriesView />} />
-          <Route path="/trending" element={<TrendingGamesView />} />
+        <Router>
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<PopularGamesView />} />
+            <Route path="/trending" element={<TrendingGamesView />} />
+            <Route path="/saga/:serie" element={<GamesBySeriesView />} />
+            <Route path="/genero/:genre" element={<GamesByGenresView />} />
+            {/* <Route path="/juego/:id" element={<GameDetailView />} />
           <Route path="/preguntas-juego/:id" element={<GameQuestionView />} /> */}
-        </Routes>
-      </Router>
-    </React.Fragment>
+          </Routes>
+        </Router>
+      </React.Fragment>
     </div>
-    
+
   );
 }
 

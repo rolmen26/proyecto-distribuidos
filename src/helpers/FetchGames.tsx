@@ -3,11 +3,11 @@ import { BaseResponse } from "../interfaces/BaseResponse"
 
 abstract class FetchData extends Conection {
 
-    public async fetchToEndpoint(endpoint: string, params: string): Promise<BaseResponse> {
+    public async fetchToEndpoint(endpoint: string, params: object): Promise<BaseResponse> {
         let rsp = await super.clientInstance().get(endpoint, {
             params: {
                 key: process.env['REACT_APP_API_KEY'],
-                params
+                ...params
             }
         });
 

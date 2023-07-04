@@ -1,18 +1,20 @@
 import FetchData from "../helpers/FetchGames"
 import { BaseResponse } from "../interfaces/BaseResponse";
 
-class PopularGames extends FetchData {
+class GameGenres extends FetchData {
 
     constructor() {
         super();
     }
 
+    params: { [k: string]: string | undefined } = {};
     endpoint: string = "/games";
-    params: object = { ordering: '-added' };
 
-    public async getPopularGames(): Promise<BaseResponse> {
+    public async getGamesByGenres(genre: string | undefined): Promise<BaseResponse> {
+        this.params.genres = genre;
         return await super.fetchToEndpoint(this.endpoint, this.params);
     }
+
 }
 
-export default PopularGames;
+export default GameGenres;
