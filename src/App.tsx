@@ -4,6 +4,7 @@ import PopularGamesView from "./views/PopularGamesView"
 import TrendingGamesView from "./views/TrendingGamesViews";
 import GamesByGenresView from "./views/GamesByGenresView"
 import GamesBySeriesView from "./views/GamesBySeriesView"
+import GameDetailView from "./views/GameDetailView";
 import Sidebar from "./assets/components/Sidebar";
 import React from "react";
 
@@ -18,8 +19,8 @@ const App = () => {
             <Route path="/trending" element={<TrendingGamesView />} />
             <Route path="/saga/:serie" element={<GamesBySeriesView />} />
             <Route path="/genero/:genre" element={<GamesByGenresView />} />
-            {/* <Route path="/juego/:id" element={<GameDetailView />} />
-          <Route path="/preguntas-juego/:id" element={<GameQuestionView />} /> */}
+            <Route path="/juego/:id" element={<GameDetailView />} />
+            {/* <Route path="/preguntas-juego/:id" element={<GameQuestionView />} /> */}
           </Routes>
         </Router>
       </React.Fragment>

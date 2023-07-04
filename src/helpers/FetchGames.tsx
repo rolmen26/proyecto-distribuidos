@@ -1,5 +1,6 @@
 import Conection from "../api/RawgClient"
 import { BaseResponse } from "../interfaces/BaseResponse"
+import { GameDetails } from "../interfaces/GameDetail"
 
 abstract class FetchData extends Conection {
 
@@ -12,6 +13,20 @@ abstract class FetchData extends Conection {
         });
 
         return rsp.data
+    }
+
+    /**
+     * 
+     * @param endpoint 
+     * @returns 
+     */
+    public async fetchGameDetail(endpoint: string): Promise<GameDetails> {
+        let rsp = await super.clientInstance().get(endpoint, {
+            params: {
+                key: process.env['REACT_APP_API_KEY']
+            }
+        });
+        return rsp.data;
     }
 
     public async fetchNextPrevious(url: string): Promise<BaseResponse> {
