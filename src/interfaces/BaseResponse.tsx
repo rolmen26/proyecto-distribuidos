@@ -1,4 +1,4 @@
-import { GameInfo, Filters } from "./GameInfo";
+import { type GameInfo, type Filters } from './GameInfo'
 
 export interface BaseResponse {
   count: number

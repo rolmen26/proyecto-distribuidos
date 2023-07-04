@@ -29,10 +29,10 @@
       "./node_modules/@types",
       "src/*"
     ],
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
   },
   "include": [
-    "src/index.tsx"
+    "src/index.tsx", "react-app-env.d.ts"
   ],
   "exclude": [
     "node_modules"

@@ -10,7 +10,5 @@ RUN npm i
 
 COPY . .
 
-EXPOSE 3000
-
 # start app
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

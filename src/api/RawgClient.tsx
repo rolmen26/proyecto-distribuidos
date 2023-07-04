@@ -1,17 +1,15 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { type AxiosInstance } from 'axios'
 
 abstract class Conection {
+  constructor() {}
 
-    constructor(){
-    }
+  protected readonly baseClient: AxiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_API_URL
+  })
 
-    protected readonly baseClient: AxiosInstance = axios.create({
-        baseURL: process.env.REACT_APP_API_URL
-    });
-
-    protected clientInstance(): AxiosInstance {
-        return this.baseClient;
-    }
+  protected clientInstance(): AxiosInstance {
+    return this.baseClient
+  }
 }
 
-export default Conection;
+export default Conection

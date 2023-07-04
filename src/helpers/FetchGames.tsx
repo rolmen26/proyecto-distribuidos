@@ -1,40 +1,38 @@
-import Conection from "../api/RawgClient"
-import { BaseResponse } from "../interfaces/BaseResponse"
-import { GameDetails } from "../interfaces/GameDetail"
+import Conection from '../api/RawgClient'
+import { type BaseResponse } from '../interfaces/BaseResponse'
+import { type GameDetails } from '../interfaces/GameDetail'
 
 abstract class FetchData extends Conection {
+  public async fetchToEndpoint(endpoint: string, params: object): Promise<BaseResponse> {
+    const rsp = await super.clientInstance().get(endpoint, {
+      params: {
+        key: import.meta.env.VITE_API_KEY,
+        ...params
+      }
+    })
 
-    public async fetchToEndpoint(endpoint: string, params: object): Promise<BaseResponse> {
-        let rsp = await super.clientInstance().get(endpoint, {
-            params: {
-                key: process.env['REACT_APP_API_KEY'],
-                ...params
-            }
-        });
+    return rsp.data
+  }
 
-        return rsp.data
-    }
+  /**
+   *
+   * @param endpoint
+   * @returns
+   */
+  public async fetchGameDetail(endpoint: string): Promise<GameDetails> {
+    const rsp = await super.clientInstance().get(endpoint, {
+      params: {
+        key: import.meta.env.VITE_API_KEY
+      }
+    })
+    return rsp.data
+  }
 
-    /**
-     * 
-     * @param endpoint 
-     * @returns 
-     */
-    public async fetchGameDetail(endpoint: string): Promise<GameDetails> {
-        let rsp = await super.clientInstance().get(endpoint, {
-            params: {
-                key: process.env['REACT_APP_API_KEY']
-            }
-        });
-        return rsp.data;
-    }
+  public async fetchNextPrevious(url: string): Promise<BaseResponse> {
+    const rsp = await super.clientInstance().get(url)
 
-    public async fetchNextPrevious(url: string): Promise<BaseResponse> {
-        const rsp = await super.clientInstance().get(url);
-
-        return rsp.data;
-    }
-
+    return rsp.data
+  }
 }
 
-export default FetchData;
+export default FetchData

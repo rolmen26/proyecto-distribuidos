@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 const SidebarLink = styled(Link)`
   display: flex;
@@ -17,11 +17,11 @@ const SidebarLink = styled(Link)`
     background: #252831;
     border-left: 4px solid #8B008B;
     cursor: pointer;
-`;
+`
 
 const SidebarLabel = styled.span`
   margin-left: 16px;
-`;
+`
 
 const DropdownLink = styled(Link)`
     background: #414757;
@@ -36,12 +36,14 @@ const DropdownLink = styled(Link)`
     &:hover {
       background: #BA55D3;
       cursor: pointer;
-`;
+`
 
 const SubMenu = ({ item }) => {
-  const [subnav, setSubnav] = useState(false);
+  const [subnav, setSubnav] = useState(false)
 
-  const showSubnav = () => setSubnav(!subnav);
+  const showSubnav = () => {
+    setSubnav(!subnav)
+  }
 
   return (
     <>
@@ -50,13 +52,7 @@ const SubMenu = ({ item }) => {
           {item.icon}
           <SidebarLabel>{item.title}</SidebarLabel>
         </div>
-        <div>
-          {item.subNav && subnav
-            ? item.iconOpened
-            : item.subNav
-            ? item.iconClosed
-            : null}
-        </div>
+        <div>{item.subNav && subnav ? item.iconOpened : item.subNav ? item.iconClosed : null}</div>
       </SidebarLink>
       {subnav &&
         item.subNav.map((item, index) => {
@@ -65,10 +61,10 @@ const SubMenu = ({ item }) => {
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>
             </DropdownLink>
-          );
+          )
         })}
     </>
-  );
-};
+  )
+}
 
-export default SubMenu;
+export default SubMenu
