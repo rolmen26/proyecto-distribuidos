@@ -1,19 +1,17 @@
-import FetchData from "../helpers/FetchGames"
-import { GameDetails } from "../interfaces/GameDetail";
+import FetchData from '../helpers/FetchGames'
+import { type GameDetails } from '../interfaces/GameDetail'
 
 class GameDetail extends FetchData {
+  constructor() {
+    super()
+  }
 
-    constructor() {
-        super();
-    }
+  endpoint: string = '/games/'
+  params: object = {}
 
-    endpoint: string = "/games/";
-    params: object = {};
-
-    public async getGamesByGenres(id: string | undefined): Promise<GameDetails> {
-        return await super.fetchGameDetail(this.endpoint + id);
-    }
-
+  public async getGamesByGenres(id: string | undefined): Promise<GameDetails> {
+    return await super.fetchGameDetail(this.endpoint + id)
+  }
 }
 
-export default GameDetail;
+export default GameDetail

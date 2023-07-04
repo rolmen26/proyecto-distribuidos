@@ -1,8 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../scss/GameCard.scss";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import '../scss/GameCard.scss'
 
-type gameProperties = { id: number, background_image: string, name: string }
+interface gameProperties {
+  id: number
+  background_image: string
+  name: string
+}
 
 const ViewGamesCard = (props: gameProperties) => {
   return (
@@ -22,7 +26,7 @@ const ViewGamesCard = (props: gameProperties) => {
         </div>
       </Link>
     </>
-  );
-};
+  )
+}
 
-export default ViewGamesCard;
+export default ViewGamesCard

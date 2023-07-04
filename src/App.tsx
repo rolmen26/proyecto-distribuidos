@@ -1,12 +1,12 @@
-import "./assets/scss/App.scss";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PopularGamesView from "./views/PopularGamesView"
-import TrendingGamesView from "./views/TrendingGamesViews";
-import GamesByGenresView from "./views/GamesByGenresView"
-import GamesBySeriesView from "./views/GamesBySeriesView"
-import GameDetailView from "./views/GameDetailView";
-import Sidebar from "./assets/components/Sidebar";
-import React from "react";
+import './assets/scss/App.scss'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import PopularGamesView from './views/PopularGamesView'
+import TrendingGamesView from './views/TrendingGamesViews'
+import GamesByGenresView from './views/GamesByGenresView'
+import GamesBySeriesView from './views/GamesBySeriesView'
+import GameDetailView from './views/GameDetailView'
+import Sidebar from './assets/components/Sidebar'
+import React from 'react'
 
 const App = () => {
   return (
@@ -25,8 +25,7 @@ const App = () => {
         </Router>
       </React.Fragment>
     </div>
-
-  );
+  )
 }
 
-export default App;
+export default App

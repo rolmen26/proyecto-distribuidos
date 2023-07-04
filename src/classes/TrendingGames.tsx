@@ -1,18 +1,17 @@
-import FetchData from "../helpers/FetchGames"
-import { BaseResponse } from "../interfaces/BaseResponse";
+import FetchData from '../helpers/FetchGames'
+import { type BaseResponse } from '../interfaces/BaseResponse'
 
 class TrendingGames extends FetchData {
+  constructor() {
+    super()
+  }
 
-    constructor() {
-        super();
-    }
+  endpoint: string = '/games/lists/main'
+  params: object = { page_size: 20 }
 
-    endpoint: string = "/games/lists/main";
-    params: object = { page_size: 20 };
-
-    public async getTrendingGames(): Promise<BaseResponse> {
-        return await super.fetchToEndpoint(this.endpoint, this.params);
-    }
+  public async getTrendingGames(): Promise<BaseResponse> {
+    return await super.fetchToEndpoint(this.endpoint, this.params)
+  }
 }
 
-export default TrendingGames;
+export default TrendingGames
