@@ -1,8 +1,8 @@
 import PopularGames from "../classes/PopularGames";
 import { useEffect, useState } from "react";
 import { GameInfo } from "../interfaces/GameInfo";
-import { Loading } from "../components/Loading";
-import ViewGamesCard from "../components/ViewGamesCard";
+import { Loading } from "../assets/components/Loading";
+import ViewGamesCard from "../assets/components/ViewGamesCard";
 
 const PopularGamesView = () => {
 

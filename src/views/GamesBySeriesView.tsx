@@ -2,8 +2,8 @@ import GameSeries from "../classes/GameSeries";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GameInfo } from "../interfaces/GameInfo";
-import { Loading } from "../components/Loading";
-import ViewGamesCard from "../components/ViewGamesCard";
+import { Loading } from "../assets/components/Loading";
+import ViewGamesCard from "../assets/components/ViewGamesCard";
 
 const GamesBySeriesView = () => {
 
@@ -15,8 +15,6 @@ const GamesBySeriesView = () => {
     const [previous, setPreviousPage] = useState<string>();
 
     const gameSeries = new GameSeries();
-
-    console.log(serie)
 
     useEffect(() => {
         gameSeries.getGamesBySerie(serie).then(({ results, next, previous }) => {

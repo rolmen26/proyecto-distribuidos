@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { GameInfo } from "../interfaces/GameInfo";
-import { Loading } from "../components/Loading";
-import ViewGamesCard from "../components/ViewGamesCard";
+import { Loading } from "../assets/components/Loading";
+import ViewGamesCard from "../assets/components/ViewGamesCard";
 import GameGenres from "../classes/GameGenres";
 
 const GamesByGenresView = () => {
