@@ -7,7 +7,7 @@ abstract class FetchData extends Conection {
     public async fetchToEndpoint(endpoint: string, params: object): Promise<BaseResponse> {
         let rsp = await super.clientInstance().get(endpoint, {
             params: {
-                key: process.env['REACT_APP_API_KEY'],
+                key: import.meta.env.VITE_API_KEY,
                 ...params
             }
         });
@@ -23,7 +23,7 @@ abstract class FetchData extends Conection {
     public async fetchGameDetail(endpoint: string): Promise<GameDetails> {
         let rsp = await super.clientInstance().get(endpoint, {
             params: {
-                key: process.env['REACT_APP_API_KEY']
+                key: import.meta.env.VITE_API_KEY
             }
         });
         return rsp.data;
