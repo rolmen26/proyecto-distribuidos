@@ -27,3 +27,5 @@ replit.nix
 
 .devcontainer/
 .env
+.idea/
+dist/

@@ -1,13 +1,13 @@
 import axios, { type AxiosInstance } from 'axios'
 
 abstract class Conection {
-  constructor() {}
+  constructor () {}
 
   protected readonly baseClient: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_URL
   })
 
-  protected clientInstance(): AxiosInstance {
+  protected clientInstance (): AxiosInstance {
     return this.baseClient
   }
 }
