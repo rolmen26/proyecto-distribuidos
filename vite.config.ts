@@ -6,5 +6,17 @@ export default defineConfig({
   css: { modules: { localsConvention: 'camelCase' } },
   server: {
     port: 3000
+  },
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      input: 'index.html',
+      output: {
+        manualChunks: {
+          react: ['react'],
+          'react-dom': ['react-dom']
+        }
+      }
+    }
   }
 })
