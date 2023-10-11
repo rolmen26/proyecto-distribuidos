@@ -2,14 +2,12 @@ version: '3'
 
 services:
   app:
+    build: ./
     container_name: proyecto_distribuidos
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    restart: on-failure
+    entrypoint: /app/etc/entrypoint.sh
     volumes:
       - .:/app
-      - /app/node_modules
+      # - /app/node_modules
     ports:
       - "3000:3000"
-      - "4173:4173"
-    restart: unless-stopped

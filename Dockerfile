@@ -1,14 +1,7 @@
-FROM node:current-alpine3.17 as builder
+FROM node:19.9.0-alpine3.17
 
-RUN apk add --no-cache bash git zip unzip
+RUN apk add --no-cache bash git
 
 WORKDIR /app
 
-COPY package*.json ./
-
-RUN npm i
-
-COPY . .
-
-# start app
-CMD ["npm", "run", "dev"]
+COPY ./ /app
