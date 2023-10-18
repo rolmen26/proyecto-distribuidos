@@ -1,4 +1,4 @@
-import Conection from '../api/RawgClient'
+import Conection from '../api/Conection'
 import { type BaseResponse } from '../interfaces/BaseResponse'
 import { type GameDetails } from '../interfaces/GameDetail'
 
